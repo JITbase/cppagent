@@ -25,23 +25,45 @@ COPY . .
 # RUN apk add --update alpine-sdk
 
 
-# RUN apk add --update \
+# RUN apk add --update  \
 #         libxml2-dev \
 #         cppunit \
 #         cmake  \
 #         bash \
+#         cppunit \
 #     && apk add --virtual build-dependencies \
 #         build-base \
 #         gcc \
 #         wget \
 #     && rm -rf /var/cache/apk/*
 
-RUN apk add --update \
+# RUN apk add --update \
+#         libxml2-dev \
+#         cppunit \
+#         cmake  \
+#         bash \
+#         alpine-sdk
+
+# http://blog.zot24.com/tips-tricks-with-alpine-docker/
+# --no-cache removes the necessity for rm -rf /var/cache/apk/*
+# --virtual .build-dependencies allows us to delete the dependencies after they are used using a single command
+RUN apk --no-cache add --update --virtual .build-dependencies \
         libxml2-dev \
         cppunit \
         cmake  \
         bash \
-        alpine-sdk
+        build-base \
+        gcc \
+        wget 
+
+# remove cppunit
+# RUN apk --no-cache add --update --virtual .build-dependencies \
+#         libxml2-dev \
+#         cmake  \
+#         bash \
+#         build-base \
+#         gcc \
+#         wget 
 
 
 # compile the application
