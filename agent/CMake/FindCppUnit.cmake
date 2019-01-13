@@ -6,8 +6,12 @@
 #  CPPUNIT_INCLUDE_DIR - The CppUnit include directory.
 #  CPPUNIT_LIBRARY     - The CppUnit library to link against.
 
-FIND_PATH(CPPUNIT_INCLUDE_DIR cppunit/Test.h)
-FIND_LIBRARY(CPPUNIT_LIBRARY NAMES cppunit)
+FIND_PATH(CPPUNIT_INCLUDE_DIR cppunit/Test.h
+  /usr/src/cppagent/cppunit/cppunit/include
+)
+FIND_LIBRARY(CPPUNIT_LIBRARY NAMES cppunit
+  /usr/src/cppagent/cppunit_make/CMakeFiles
+)
 
 IF (CPPUNIT_INCLUDE_DIR AND CPPUNIT_LIBRARY)
    SET(CPPUNIT_FOUND TRUE)
