@@ -1,0 +1,23 @@
+
+# Git
+.git
+.gitignore
+.gitmodules
+
+# Unused files and folders
+assets
+cppunit
+cppunit_make
+install
+libxml2
+libxml2_make
+samples
+schema
+# simulator
+test
+tools
+BUILD.TXT
+
+# Docker
+Dockerfile
+.dockerignore
