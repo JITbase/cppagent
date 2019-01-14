@@ -47,24 +47,48 @@ COPY . .
 # http://blog.zot24.com/tips-tricks-with-alpine-docker/
 # --no-cache removes the necessity for rm -rf /var/cache/apk/*
 # --virtual .build-dependencies allows us to delete the dependencies after they are used using a single command
-RUN apk --no-cache add --update --virtual .build-dependencies \
-        libxml2-dev \
-        cppunit \
-        cmake  \
-        bash \
-        build-base \
-        gcc \
-        wget 
-
-# remove cppunit
 # RUN apk --no-cache add --update --virtual .build-dependencies \
 #         libxml2-dev \
+#         cppunit \
 #         cmake  \
 #         bash \
 #         build-base \
 #         gcc \
 #         wget 
 
+# remove cppunit
+RUN apk --no-cache add --update --virtual .build-dependencies \
+        libxml2-dev \
+        cmake  \
+        bash \
+        build-base \
+        gcc \
+        wget 
+
+# RUN cmake ./cppunit_make
+# /usr/src/cppagnet # cmake ./cppunit_make/
+# -- The C compiler identification is GNU 6.4.0
+# -- The CXX compiler identification is GNU 6.4.0
+# -- Check for working C compiler: /usr/bin/cc
+# -- Check for working C compiler: /usr/bin/cc -- works
+# -- Detecting C compiler ABI info
+# -- Detecting C compiler ABI info - done
+# -- Detecting C compile features
+# -- Detecting C compile features - done
+# -- Check for working CXX compiler: /usr/bin/c++
+# -- Check for working CXX compiler: /usr/bin/c++ -- works
+# -- Detecting CXX compiler ABI info
+# -- Detecting CXX compiler ABI info - done
+# -- Detecting CXX compile features
+# -- Detecting CXX compile features - done
+# -- Configuring done
+# -- Generating done
+# -- Build files have been written to: /usr/src/cppagnet
+
+# RUN cmake .
+# -- Configuring done
+# -- Generating done
+# -- Build files have been written to: /usr/src/cppagnet
 
 # compile the application
 # RUN g++ -o cppagent agent.cpp
