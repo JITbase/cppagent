@@ -41,6 +41,7 @@ RUN apk del .build-dependencies
 # delte folder no longer needed
 RUN rm -r /usr/src/cppagent
 
+# expose port 5000 on the container
 EXPOSE 5000
 
 COPY ./samples /etc/mtconnect/samples
