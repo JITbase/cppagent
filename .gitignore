@@ -7,3 +7,5 @@ Release
 *.ncb
 *.user
 test/agent.log*
+
+.vscode/ipch/*
